@@ -1,8 +1,8 @@
 # Getting Start
 
-Get Twiiter API Account From References
+- Get Twiiter API Account From References
 
-SET the Secret Infomation in env file
+- SET the Secret Infomation in env file
 
 ```
 touch .env
