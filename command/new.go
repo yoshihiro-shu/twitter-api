@@ -12,16 +12,16 @@ import (
 )
 
 func NewApplicationCommand(t *twitter_service.TwitterAPIHandler) *cobra.Command {
-	// this command doesn't work
 	var command = &cobra.Command{
 		Use:   "app",
-		Short: "Manage applications",
-		Example: `Cobra is a CLI library for Go that empowers applications.
-		This application is a tool to generate the needed files
-		to quickly create a Cobra application.1`,
+		Short: "This commands is available with your laptop!",
+		Example: `
+by default you can run "go run main.go"
+
+if you want play with twitter api, you can run "go run main.go  get-timeline " `,
 		Run: func(c *cobra.Command, args []string) {
 			// c.HelpFunc()(c, args)
-			fmt.Println("APP")
+			fmt.Println("Hello !!! Now You Can Enjoy with this commands!!!")
 			os.Exit(1)
 		},
 	}

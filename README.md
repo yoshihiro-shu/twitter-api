@@ -27,6 +27,33 @@ curl --request GET 'https://api.twitter.com/2/users/by/username/USER_NAME --head
 go run main.go  get-timeline
 ```
 
+```
+% go run main.go  --help
+This commands is available with your laptop!
+
+Usage:
+  app [flags]
+  app [command]
+
+Examples:
+
+by default you can run "go run main.go"
+
+if you want play with twitter api, you can run "go run main.go  get-timeline " 
+
+Available Commands:
+  completion            Generate the autocompletion script for the specified shell
+  get-follwers          get followers by user in Twitter
+  get-timeline          get timeline by user recently in Twitter
+  get-user-liked-tweets get tweets by user liked in Twitter
+  help                  Help about any command
+
+Flags:
+  -h, --help   help for app
+
+Use "app [command] --help" for more information about a command.
+```
+
 ## References
 https://developer.twitter.com/en/portal/dashboard
 
