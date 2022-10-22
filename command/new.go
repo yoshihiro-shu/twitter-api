@@ -18,7 +18,7 @@ func NewApplicationCommand(t *twitter_service.TwitterAPIHandler) *cobra.Command 
 		Example: `
 by default you can run "go run main.go"
 
-if you want play with twitter api, you can run "go run main.go  get-timeline " `,
+if you want play with twitter api, you can run "go run main.go  get-timeline" `,
 		Run: func(c *cobra.Command, args []string) {
 			// c.HelpFunc()(c, args)
 			fmt.Println("Hello !!! Now You Can Enjoy with this commands!!!")
