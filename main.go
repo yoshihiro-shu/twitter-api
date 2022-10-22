@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/joho/godotenv"
+	"github.com/yoshihiro-shu/twitter/command"
 	twitter_service "github.com/yoshihiro-shu/twitter/twitter/service"
 )
 
@@ -13,16 +13,9 @@ func main() {
 
 	t := twitter_service.New()
 
-	data, err := t.GetUserTweetTimeline()
-	if err != nil {
-		log.Fatalln(err)
-	}
+	cmd := command.NewApplicationCommand(t)
 
-	// cmd := command.NewApplicationCommand()
-
-	// log.Fatalln(cmd.Execute())
-
-	fmt.Println(data)
+	cmd.Execute()
 
 }
 
