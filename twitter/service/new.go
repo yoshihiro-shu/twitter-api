@@ -2,66 +2,38 @@ package twitter_service
 
 import (
 	"fmt"
-	"io"
-	"net/http"
 	"os"
-	"time"
 
 	user_follwer "github.com/yoshihiro-shu/twitter/twitter/user/follower"
 	user_tweet_timeline "github.com/yoshihiro-shu/twitter/twitter/user/tweet/timeline"
 )
 
 type TwitterAPIHandler struct {
-	UserId       string `json:"userId"`
-	UserName     string `json:"userName"`
-	APIKey       string `json:"consumer_key"`
-	APIKeySecret string `json:"consumer_secret"`
-	BearerToken  string `json:"bearer_token"`
+	userId       string
+	userName     string
+	aPIKey       string
+	aPIKeySecret string
+	bearerToken  string
 }
 
 func New() *TwitterAPIHandler {
 	return &TwitterAPIHandler{
-		UserId:       os.Getenv("UserId"),
-		UserName:     os.Getenv("UserName"),
-		APIKey:       os.Getenv("APIKey"),
-		APIKeySecret: os.Getenv("APIKeySecret"),
-		BearerToken:  os.Getenv("BearerToken"),
+		userId:       os.Getenv("UserId"),
+		userName:     os.Getenv("UserName"),
+		aPIKey:       os.Getenv("APIKey"),
+		aPIKeySecret: os.Getenv("APIKeySecret"),
+		bearerToken:  os.Getenv("BearerToken"),
 	}
 }
 
 func (t TwitterAPIHandler) getBearerToken() string {
-	return fmt.Sprintf("Bearer %s", t.BearerToken)
-}
-
-func (t TwitterAPIHandler) GetRequestApi() (string, error) {
-	url := "https://api.twitter.com/2/tweets/search/recent?query=from:twitterdev"
-	clinet := &http.Client{
-		Timeout: time.Second * 10,
-	}
-
-	req, _ := http.NewRequest(http.MethodGet, url, nil)
-
-	req.Header.Add("Authorization", t.getBearerToken())
-
-	res, err := clinet.Do(req)
-	if err != nil {
-		return "", err
-	}
-
-	defer res.Body.Close()
-	b, err := io.ReadAll(res.Body)
-	if err != nil {
-		return "", nil
-	}
-
-	return string(b), nil
-
+	return fmt.Sprintf("Bearer %s", t.bearerToken)
 }
 
 func (t TwitterAPIHandler) GetUserFollowers() (string, error) {
-	return user_follwer.Do(t.UserId, t.BearerToken)
+	return user_follwer.Do(t.userId, t.getBearerToken())
 }
 
 func (t TwitterAPIHandler) GetUserTweetTimeline() (string, error) {
-	return user_tweet_timeline.Do(t.UserId, t.BearerToken)
+	return user_tweet_timeline.Do(t.userId, t.getBearerToken())
 }
