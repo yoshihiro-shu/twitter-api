@@ -4,7 +4,7 @@ import (
 	"github.com/yoshihiro-shu/twitter/twitter/utils"
 )
 
-const apiEndpoint = "https://api.twitter.com/2/users/%s/tweets"
+const apiEndpoint = "/2/users/%s/tweets"
 
 var tweetParams = map[string]string{"tweet.fields": "created_at"}
 

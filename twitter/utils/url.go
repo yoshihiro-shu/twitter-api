@@ -5,8 +5,12 @@ import (
 	"net/url"
 )
 
+const twitterApiV2 = "https://api.twitter.com"
+
 func CreateUrl(urlFormat string, args ...interface{}) (*url.URL, error) {
 	endpoint := fmt.Sprintf(urlFormat, args...)
+
+	endpoint = twitterApiV2 + endpoint
 
 	url, err := url.Parse(endpoint)
 	if err != nil {
