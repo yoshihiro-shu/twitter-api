@@ -20,9 +20,10 @@ UserId=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 curl --request GET 'https://api.twitter.com/2/users/by/username/USER_NAME --header 'Authorization: Bearer XXXXXX'
 ```
 
-## sample
+## Sample Command
 
 ```golang
+# endpoint is "https://api.twitter.com/2/users/:id/tweets" to get timeline by userId recently
 go run main.go  get-timeline
 ```
 
