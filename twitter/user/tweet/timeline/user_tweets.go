@@ -9,7 +9,7 @@ const apiEndpoint = "/2/users/%s/tweets"
 var tweetParams = map[string]string{"tweet.fields": "created_at"}
 
 func Do(userId, bearerToken string) (string, error) {
-	url, _ := utils.CreateUrl(apiEndpoint, userId)
+	url, _ := utils.CreateUrlApiV2(apiEndpoint, userId)
 
 	utils.SetParams(url, tweetParams)
 

@@ -7,7 +7,7 @@ import (
 
 const twitterApiV2 = "https://api.twitter.com"
 
-func CreateUrl(urlFormat string, args ...interface{}) (*url.URL, error) {
+func CreateUrlApiV2(urlFormat string, args ...interface{}) (*url.URL, error) {
 	endpoint := fmt.Sprintf(urlFormat, args...)
 
 	endpoint = twitterApiV2 + endpoint

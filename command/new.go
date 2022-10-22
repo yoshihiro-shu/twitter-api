@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	get_user_follower "github.com/yoshihiro-shu/twitter/command/twiiter-api-v2/get-user-followers/commands"
 	get_user_timeline "github.com/yoshihiro-shu/twitter/command/twiiter-api-v2/get-user-timeline/commands"
 	twitter_service "github.com/yoshihiro-shu/twitter/twitter/service"
 )
@@ -25,6 +26,7 @@ func NewApplicationCommand(t *twitter_service.TwitterAPIHandler) *cobra.Command 
 	}
 
 	command.AddCommand(get_user_timeline.NewApplicationGetTwiiterTimeline(t))
+	command.AddCommand(get_user_follower.NewApplicationGetUserFollowers(t))
 
 	return command
 }
