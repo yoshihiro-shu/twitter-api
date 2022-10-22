@@ -13,7 +13,7 @@ const cliName = "get-user-liked-tweets"
 func NewApplicationGetUserLikedTweets(t *twitter_service.TwitterAPIHandler) *cobra.Command {
 	var command = cobra.Command{
 		Use:   cliName,
-		Short: "get twitter timeline by user",
+		Short: "get tweets by user liked in Twitter",
 		Long:  "",
 		Run: func(cmd *cobra.Command, args []string) {
 			data, err := t.GetUserLikeTweets()
